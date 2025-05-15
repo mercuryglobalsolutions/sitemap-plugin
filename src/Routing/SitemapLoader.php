@@ -44,7 +44,7 @@ final class SitemapLoader extends Loader implements RouteLoaderInterface
             $routes->add(
                 $name,
                 new Route(
-                    '/sitemap/FR_WEB/' . $provider->getName() . '_{index}.xml',
+                    '/files/sitemap/FR_WEB/' . $provider->getName() . '_{index}.xml',
                     [
                         '_controller' => 'sylius.controller.sitemap::showAction',
                         'name' => $provider->getName(),

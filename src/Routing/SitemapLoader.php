@@ -40,11 +40,11 @@ final class SitemapLoader extends Loader implements RouteLoaderInterface
             if (null !== $routes->get($name)) {
                 throw new RouteExistsException($name);
             }
-
+            //TODO: Add Channel code for generate url (Like FR_WEB)
             $routes->add(
                 $name,
                 new Route(
-                    '/sitemap/' . $provider->getName() . '_{index}.xml',
+                    '/sitemap/FR_WEB/' . $provider->getName() . '_{index}.xml',
                     [
                         '_controller' => 'sylius.controller.sitemap::showAction',
                         'name' => $provider->getName(),

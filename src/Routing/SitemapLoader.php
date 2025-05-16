@@ -17,11 +17,15 @@ final class SitemapLoader extends Loader implements RouteLoaderInterface
 
     private SitemapBuilderInterface $sitemapBuilder;
 
+    private string $path;
+
     public function __construct(
         SitemapBuilderInterface $sitemapBuilder,
+        string $path,
         ?string $env = null
     ) {
         $this->sitemapBuilder = $sitemapBuilder;
+        $this->path = $path;
 
         parent::__construct($env);
     }
@@ -40,11 +44,10 @@ final class SitemapLoader extends Loader implements RouteLoaderInterface
             if (null !== $routes->get($name)) {
                 throw new RouteExistsException($name);
             }
-            //TODO: Add Channel code for generate url (Like FR_WEB)
             $routes->add(
                 $name,
                 new Route(
-                    '/files/sitemap/FR_WEB/' . $provider->getName() . '_{index}.xml',
+                    $this->path .'/' . $provider->getName() . '_{index}.xml',
                     [
                         '_controller' => 'sylius.controller.sitemap::showAction',
                         'name' => $provider->getName(),

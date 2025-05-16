@@ -91,6 +91,7 @@ sitemap:
         static: true
     template:             '@SitemapPlugin/show.xml.twig'
     index_template:       '@SitemapPlugin/index.xml.twig'
+    index_path:           '/sitemap'
     exclude_taxon_root:   true
     hreflang:             true
     images:               true

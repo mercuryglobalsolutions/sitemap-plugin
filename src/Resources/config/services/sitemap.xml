@@ -78,6 +78,7 @@
 
         <service id="sylius.sitemap.routing_loader" class="SitemapPlugin\Routing\SitemapLoader">
             <argument type="service" id="sylius.sitemap_builder" />
+            <argument>%sylius.sitemap_index_path%</argument>
             <tag name="routing.loader" />
         </service>
 

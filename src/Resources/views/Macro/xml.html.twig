@@ -14,7 +14,11 @@
 
 {%- macro priority(url) -%}
     {%- if url.priority is not same as(null) -%}
+        {%- if url.priority is same as(1) -%}
+        <priority>1.0</priority>
+        {%- else -%}
         <priority>{{ url.priority }}</priority>
+        {%- endif -%}
     {%- endif -%}
 {%- endmacro -%}
 
